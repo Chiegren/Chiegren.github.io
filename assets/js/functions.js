@@ -121,28 +121,29 @@ $(document).ready(function () {
 
     var curActive = $('.side-nav').find('.is-active'),
       curPos = $('.side-nav').children().index(curActive),
-      lastItem = $('.side-nav').children().length - 1,
+      lastItem = $('.side-nav').children().length,
       nextPos = 0;
 
     if (param.type === "swipeup" || param.keyCode === 40 || param > 0) {
       if (curPos !== lastItem) {
-        nextPos = curPos + 1;
+        nextPos = curPos + 0;
         updateNavs(nextPos);
         updateContent(curPos, nextPos, lastItem);
       }
       else {
+        nextPos = curPos + 1;
         updateNavs(nextPos);
         updateContent(curPos, nextPos, lastItem);
       }
     }
     else if (param.type === "swipedown" || param.keyCode === 38 || param < 0) {
       if (curPos !== 0) {
-        nextPos = curPos - 1;
+        nextPos = curPos - 0;
         updateNavs(nextPos);
         updateContent(curPos, nextPos, lastItem);
       }
       else {
-        nextPos = lastItem;
+        nextPos = lastItem - 1;
         updateNavs(nextPos);
         updateContent(curPos, nextPos, lastItem);
       }
